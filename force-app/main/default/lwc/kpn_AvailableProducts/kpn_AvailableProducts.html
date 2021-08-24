@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Available Products" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <template if:true={prdList}>
+                <lightning-datatable 
+                 hide-checkbox-column="true"
+                 data={prdList} 
+                 columns={columns}
+                 key-field="Id"
+                 sorted-by={sortBy}
+                 sorted-direction={sortDirection}
+                 onsort={handleSortPrdData}
+                 onrowaction={handleRowAction}>
+                </lightning-datatable>
+            </template>
+            <template if:true={error}>
+                {error}
+            </template>
+        </div>
+    </lightning-card>
+    <c-kpn_-order-products record-id={recordId} onbuttondisable={handlebuttondisable}></c-kpn_-order-products>
+</template>

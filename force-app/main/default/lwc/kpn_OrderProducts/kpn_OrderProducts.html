@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Order Products" icon-name="custom:custom63"  if:true={updatedOrdrList.length}>
+        <lightning-button variant="brand" label="Activate" title="Activate" onclick={handleClick} disabled={buttonDisable} class="slds-align_absolute-center"></lightning-button>
+        <div class="slds-m-around_medium">
+            <lightning-datatable 
+                 hide-checkbox-column="true"
+                 data={updatedOrdrList} 
+                 columns={columns}
+                 key-field="Id"
+                 sorted-by={sortBy}
+                 sorted-direction={sortDirection}
+                 onsort={handleOrderItemData}>
+                </lightning-datatable>
+           <template if:true={error}>
+                {error}
+            </template>
+        </div>
+    </lightning-card>
+</template>
